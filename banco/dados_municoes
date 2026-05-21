@@ -1,0 +1,8 @@
+insert into municoes values (1, 'Flechas', 'Arco', '0', '5');
+insert into municoes values (2, 'Virotes', 'Besta', '0', '8');
+insert into municoes values (3, 'Balas Leves', 'Pistola', '0', '2');
+insert into municoes values (4, 'Balas Padrão', 'Revólver', '0', '3');
+insert into municoes values (5, 'Munição de Fuzil', 'Fuzil', '0', '6');
+insert into municoes values (6, 'Shuriken(Kit)', 'Shuriken', '0', '40');
+insert into municoes values (7, 'Cartuchos especiais', 'Revólver/Pistola', '5', '10');
+insert into municoes values (8, 'Tanque de Combustível', 'Lança-Chamas', '0', '300');
