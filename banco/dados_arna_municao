@@ -1,0 +1,16 @@
+insert into arma_municao values (5, 1);
+insert into arma_municao values (6, 2);
+insert into arma_municao values (8, 3);
+insert into arma_municao values (7, 4);
+insert into arma_municao values (9, 5);
+insert into arma_municao values (14, 6);
+insert into arma_municao values (7, 7);
+insert into arma_municao values (8, 7);
+insert into arma_municao values (21, 8);
+
+-- select para visualizar a tabela 
+  
+select a.nome, m.nome
+from arma_municao am
+join arma a on a.idarmas = am.idarmas 
+join municoes m on m.idmunicoes = am.idmunicoes ;
