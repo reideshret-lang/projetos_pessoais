@@ -1,0 +1,6 @@
+insert into raridade values (1, 'Comum', '1');
+insert into raridade values (2, 'Incomum', '3');
+insert into raridade values (3, 'Raro', '5');
+insert into raridade values (4, 'Épico', '10');
+insert into raridade values (5, 'Lendário', '15');
+insert into raridade values (6, 'Única', '20');
