@@ -1,0 +1,168 @@
+-- Uma lojinha criada para organização de venda de armas em role playing game
+
+create database "Loja de Armas";
+
+CREATE TABLE IF NOT EXISTS categoria (
+  idcategoria INT NOT NULL,
+  nome VARCHAR(50) NOT NULL,
+  descricao VARCHAR(150) NOT NULL,
+  PRIMARY KEY (idcategoria))
+  
+CREATE TABLE IF NOT EXISTS raridade (
+  idraridade INT NOT NULL,
+  nivel VARCHAR(45) NOT NULL,
+  multiplicador DECIMAL(5,2) NOT NULL,
+  PRIMARY KEY (idraridade))
+  
+CREATE TABLE IF NOT EXISTS arma (
+  idarmas INT NOT NULL,
+  nome VARCHAR(50) NOT NULL,
+  dano INT NOT NULL,
+  alcance INT NULL,
+  peso DECIMAL(5,2) NULL,
+  preco_base DECIMAL(10,2) NOT NULL,
+  idcategoria INT NOT NULL,
+  idraridade INT NOT NULL,
+  PRIMARY KEY (idarmas),
+  CONSTRAINT fk_arma_categoria
+    FOREIGN KEY (idcategoria)
+    REFERENCES categoria (idcategoria)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_arma_raridade1
+    FOREIGN KEY (idraridade)
+    REFERENCES raridade (idraridade)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+    
+  CREATE TABLE IF NOT EXISTS municoes (
+  idmunicoes INT NOT NULL,
+  nome VARCHAR(50) NOT NULL,
+  tipo VARCHAR(30) NULL,
+  dano_extra INT NULL DEFAULT 0,
+  preco DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (idmunicoes))
+  
+  CREATE TABLE IF NOT exists arma_municao (
+  idarmas INT NOT NULL,
+  idmunicoes INT NOT NULL,
+  PRIMARY KEY (idarmas, idmunicoes),
+  CONSTRAINT fk_arma_has_municoes_arma1
+    FOREIGN KEY (idarmas)
+    references arma (idarmas)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_arma_has_municoes_municoes1
+    FOREIGN KEY (idmunicoes)
+    REFERENCES municoes (idmunicoes)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+    
+ CREATE TABLE IF NOT EXISTS comprador (
+  idcomprador INT NOT NULL,
+  personagem VARCHAR(100) NOT NULL,
+  dinheiro DECIMAL(10,2) NULL,
+  PRIMARY KEY (idcomprador))
+  
+CREATE TABLE IF NOT EXISTS inventario (
+  idinventario INT NOT NULL,
+  idarmas INT NOT NULL,
+  idcomprador INT NOT NULL,
+  quantidade INT NULL DEFAULT 1,
+  equipado BOOLEAN NULL DEFAULT FALSE,
+  PRIMARY KEY (idinventario),
+  CONSTRAINT fk_inventario_arma1
+    FOREIGN KEY (idarmas)
+    REFERENCES arma (idarmas)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_inventario_comprador1
+    FOREIGN KEY (idcomprador)
+    REFERENCES comprador (idcomprador)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+    
+ CREATE TABLE IF NOT EXISTS vendas (
+  idvendas INT NOT NULL,
+  data_venda DATE NOT NULL,
+  valor_total DECIMAL(10,2) NOT NULL,
+  idcomprador INT NOT NULL,
+  PRIMARY KEY (idvendas),
+  CONSTRAINT fk_vendas_comprador1
+    FOREIGN KEY (idcomprador)
+    REFERENCES comprador (idcomprador)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+    
+CREATE TABLE IF NOT exists vendidos (
+  idvendidos INT NOT NULL,
+  quantidade INT NOT NULL,
+  preco_unitario DECIMAL(10,2) NOT NULL,
+  idarmas INT NOT NULL,
+  idvendas INT NOT NULL,
+  PRIMARY KEY (idvendidos),
+  CONSTRAINT fk_vendidos_arma1
+    FOREIGN KEY (idarmas)
+    REFERENCES arma (idarmas)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_vendidos_vendas1
+    FOREIGN KEY (idvendas)
+    REFERENCES vendas (idvendas)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+    
+ CREATE TABLE IF NOT exists encantamentos (
+  idencantamentos INT NOT NULL,
+  nome VARCHAR(50) NOT NULL,
+  elemento VARCHAR(30) NULL,
+  bonus_dano INT NULL DEFAULT 0,
+  efeito TEXT NULL,
+  idraridade INT NOT NULL,
+  PRIMARY KEY (idencantamentos),
+  CONSTRAINT fk_encantamentos_raridade1
+    FOREIGN KEY (idraridade)
+    REFERENCES raridade (idraridade)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+    
+CREATE TABLE IF NOT EXISTS arma_encantada (
+  idarmas INT NOT NULL,
+  idencantamentos INT NOT NULL,
+  PRIMARY KEY (idarmas, idencantamentos),
+  CONSTRAINT fk_arma_has_encantamentos_arma1
+    FOREIGN KEY (idarmas)
+    REFERENCES arma (idarmas)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_arma_has_encantamentos_encantamentos1
+    FOREIGN KEY (idencantamentos)
+    REFERENCES encantamentos (idencantamentos)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+    
+CREATE TABLE IF NOT EXISTS vendedores (
+  idvendedores INT NOT NULL,
+  nome VARCHAR(50) NOT NULL,
+  local VARCHAR(100) NULL,
+  tipo_loja VARCHAR(50) NULL,
+  dinheiro DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (idvendedores))
+  
+CREATE TABLE IF NOT EXISTS estoque (
+  idestoque INT NOT NULL,
+  idarmas INT NOT NULL,
+  idvendedores INT NOT NULL,
+  quantidade INT NULL DEFAULT 0,
+  preco DECIMAL(10,2) NULL,
+  PRIMARY KEY (idestoque),
+  CONSTRAINT fk_estoque_arma1
+    FOREIGN KEY (idarmas)
+    REFERENCES arma (idarmas)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_estoque_vendedores
+    FOREIGN KEY (idvendedores)
+    references vendedores (idvendedores)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
