@@ -1,5 +1,19 @@
-insert into categoria values (1, 'Cortante', 'Armas com lâmina');
-insert into categoria values (2, 'Perfurante', 'Armas que perfuram');
-insert into categoria values (3, 'Impacto', 'Armas que causam dano de impacto');
-insert into categoria values (4, 'Balístico', 'Armas que usam munição');
-insert into categoria values (5, 'Explosivo', 'Armas explosivas');
+-- ideias de dados
+
+-- Categoria geral (Serve para qualquer tipo de rpg)
+
+insert into categoria values (1, 'Corpo a Corpo', 'Para ataques de curta distância, exigem técnica de luta e velocidade.');
+insert into categoria values (2, 'Longo Alcance', 'Permitem atacar inimigos à distância utilizando projéteis ou munições.');
+insert into categoria values (3, 'Armas de Fogo', 'Utilizam pólvora ou energia para realizar disparos rápidos e letais.');
+insert into categoria values (4, 'Armas Pesadas', 'Possuem alto poder destrutivo, porém são mais lentas e difíceis de carregar.');
+insert into categoria values (5, 'Armas Mágicas', 'Canalizam energia para lançar feitiços e habilidades especiais.');
+insert into categoria values (6, 'Armas Improvisadas', 'Objetos comuns adaptados para combate em situações emergenciais.');
+insert into categoria values (7, 'Armas Sagradas', 'Itens abençoados com poderes divinos.');
+insert into categoria values (8, 'Armas Amaldiçoadas', 'Armas com poderes sombrios que oferecem força em troca de riscos.');
+
+-- Ordem paranormal (Os tipos de arma do RPG de Ordem) 
+
+insert into categoria values (1, 'C', 'Dano causado por corte');
+insert into categoria values (2, 'P', 'Dano causado por perfuração');
+insert into categoria values (3, 'I', 'Dano causado por impacto');
+insert into categoria values (4, 'B', 'Dano balístico causado por armas de fogo');
