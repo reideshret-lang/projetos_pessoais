@@ -1,7 +1,0 @@
-insert into inventario values (1, 17, 1, '1', 'TRUE');
-insert into inventario values (2, 22, 2, '1', 'FALSE');
-insert into inventario values (3, 4, 3, '1', 'TRUE');
-insert into inventario values (4, 7, 4, '1', 'FALSE');
-insert into inventario values (5, 5, 6, '1', 'FALSE');
-insert into inventario values (6, 9, 5, '1', 'TRUE');
-insert into inventario values (7, 25, 7, '1', 'TRUE');
