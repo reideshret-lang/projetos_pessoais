@@ -1,0 +1,10 @@
+insert into inventario values (1, 33, 1001, '1', 'TRUE');
+insert into inventario values (2, 17, 2002, '1', 'TRUE');
+insert into inventario values (3, 31, 7007, '1', 'TRUE');
+
+-- melhor visualizacao da tabela
+
+select c.nome as nome, a.nome as arma, i.quantidade as quantidade, i.equipado as equipado
+from inventario i
+join comprador c on c.idcomprador = i.idcomprador 
+join arma a on a.idarmas = i.idarmas;
