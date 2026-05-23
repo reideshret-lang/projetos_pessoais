@@ -1,7 +1,7 @@
 -- Valores fictícios e podem ser alterados
 
-insert into arma values (1, 'Faca', '7', 'Curto', '1', '25', 1, 1);
-insert into arma values (2, 'Martelo', '10', 'Curto', '1', '40', 3, 1);
+insert into arma values (1, 'Faca', '7', NULL, '1', '25', 1, 1);
+insert into arma values (2, 'Martelo', '10', NULL, '1', '40', 3, 1);
 insert into arma values (3, 'Bastão', '8', 'Curto', '1', '55', 3, 1);
 insert into arma values (4, 'Lança', '12', 'Médio', '1', '120', 2, 1);
 insert into arma values (5, 'Arco e Flecha', '18', 'Longo', '1', '150', 2, 1);
@@ -24,7 +24,7 @@ insert into arma values (21, 'Lança-Chamas', '40', 'Médio', '1', '3500', 5, 4)
 insert into arma values (22, 'Adaga', '6', 'Curto', '1', '180', 1, 1);
 insert into arma values (23, 'Chicote', '9', 'Médio', '1', '150', 3, 1);
 insert into arma values (24, 'Nunchako', '9', 'Curto', '1', '130', 2, 1);
-insert into arma values (25, 'Soco-Inglês', '7', 'Curto', '1', '110', 3, 1);
+insert into arma values (25, 'Soco-Inglês', '7', NULL, '1', '110', 3, 1);
 insert into arma values (26, 'Estilingue', '8', 'Médio', '1', '35', 3, 1);
 insert into arma values (27, 'Baioneta', '11', 'Curto', '1', '170', 2, 2);
 insert into arma values (28, 'Picareta', '12', 'Curto', '2', '210', 2, 1);
