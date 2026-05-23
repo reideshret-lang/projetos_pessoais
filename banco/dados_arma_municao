@@ -10,7 +10,7 @@ insert into arma_municao values (21, 8);
 
 -- select para visualizar a tabela 
   
-select a.nome, m.nome
+select a.nome as arma, m.nome as municao
 from arma_municao am
 join arma a on a.idarmas = am.idarmas 
 join municoes m on m.idmunicoes = am.idmunicoes ;
