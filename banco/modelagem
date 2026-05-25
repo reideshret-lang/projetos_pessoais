@@ -113,6 +113,24 @@ CREATE TABLE IF NOT EXISTS vendas (
     REFERENCES vendedores (idvendedores)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+
+CREATE TABLE IF NOT exists vendidos (
+  idvendidos INT NOT NULL,
+  quantidade INT NOT NULL,
+  preco_unitario DECIMAL(10,2) NOT NULL,
+  idarmas INT NOT NULL,
+  idvendas INT NOT NULL,
+  PRIMARY KEY (idvendidos),
+  CONSTRAINT fk_vendidos_arma1
+    FOREIGN KEY (idarmas)
+    REFERENCES arma (idarmas)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_vendidos_vendas1
+    FOREIGN KEY (idvendas)
+    REFERENCES vendas (idvendas)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
     
  CREATE TABLE IF NOT exists encantamentos (
   idencantamentos INT NOT NULL,
