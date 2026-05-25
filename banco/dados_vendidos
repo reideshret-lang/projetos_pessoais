@@ -1,0 +1,5 @@
+-- essa tabela ativa o trigger
+
+insert into vendidos (idvendidos, quantidade, idarmas, idvendas) values (1, '1', 33, 1);
+insert into vendidos (idvendidos, quantidade, idarmas, idvendas) values (2, '1', 17, 2);
+insert into vendidos (idvendidos, quantidade, idarmas, idvendas) values (3, '1', 31, 3);
