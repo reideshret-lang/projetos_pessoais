@@ -45,3 +45,10 @@ select a.nome as arma, r.nivel as raridade, r.multiplicador as multiplicador_dan
 from arma a
 join raridade r on r.idraridade = a.idraridade
 order by a.idarmas ;
+
+-- para ver melhor a tabela
+select a.idarmas, a.nome, a.dano, a.alcance, a.peso, a.preco_base, c.nome as categoria, r.nivel as raridade
+from arma a
+join categoria c on c.idcategoria = a.idcategoria
+join raridade r on r.idraridade = a.idraridade
+order by a.idarmas;
