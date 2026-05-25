@@ -1,0 +1,4 @@
+-- a raridade nesse caso não multiplica o dano do encantamento e sim apenas indica qual raridade uma arma encantada é
+
+insert into encantamentos values (1111, 'Chamas', 'Fogo', '10', 'Causa queimaduras no inimigo atingido.', 4 );
+insert into encantamentos values (2222, 'Congelar', 'Gelo', '10', 'Congela o alvo por alguns minutos.', 4 );
