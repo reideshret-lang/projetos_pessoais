@@ -13,9 +13,20 @@ insert into comprador values (8008, 'Hiroyuki Kurata', '25', 'Elfo', 'Clérigo',
 
 -- para mudar o valor das moedas
 
+-- caso queira zerar o saldo 
 update comprador
 set moedas = '0'
 where idcomprador = 1001;
+
+-- caso queira subtrair o saldo
+update comprador
+set moedas = moedas - 280
+where idcomprador = 2002;
+
+-- caso queira adicionar saldo
+update comprador
+set moedas = moedas + 100
+where idcomprador = 3003;
 
 -- para mudar o peso que tem no inventário
 
