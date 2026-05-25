@@ -1,26 +1,3 @@
--- trigger para automatizar, ao inserir dados na tabela de vendas, automaticamente o dinheiro vai ser descontado do comprador e adicionado ao saldo do vendedor
-
-CREATE OR REPLACE FUNCTION atualizar_moedas()
-RETURNS TRIGGER AS $$
-BEGIN
-
-    UPDATE comprador
-    SET moedas = moedas - NEW.valor
-    WHERE idcomprador = NEW.idcomprador;
-
-    UPDATE vendedores
-    SET moedas = moedas + NEW.valor
-    WHERE idvendedores = NEW.idvendedores;
-
-    RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
-
-CREATE TRIGGER trg_venda
-AFTER INSERT ON vendas
-FOR EACH ROW
-EXECUTE FUNCTION atualizar_moedas();
-
-insert into vendas values (1, '2026-05-25', '900', 1001, 333);
-insert into vendas values (2, '2026-05-25', '280', 2002, 666);
-insert into vendas values (3, '2026-05-25', '260', 7007, 222);
+insert into vendas values (1, '2026-05-25', 1001, 333);
+insert into vendas values (2, '2026-05-25', 2002, 666);
+insert into vendas values (3, '2026-05-25', 7007, 222);
