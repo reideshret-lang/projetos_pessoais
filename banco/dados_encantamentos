@@ -2,3 +2,5 @@
 
 insert into encantamentos values (1111, 'Chamas', 'Fogo', '10', 'Causa queimaduras no inimigo atingido.', 4 );
 insert into encantamentos values (2222, 'Congelar', 'Gelo', '10', 'Congela o alvo por alguns minutos.', 4 );
+insert into encantamentos values (3333, 'Explosão', 'Fogo', '15', 'Causa uma explosão em área', 5);
+insert into encantamentos values (4444, 'Corte Aquático', 'Água', '10', 'Faz um jato de pressão de água ao atacar', 4);
