@@ -1,0 +1,15 @@
+insert into estoque values (1, 11, 222, '10');
+insert into estoque values (2, 12, 222, '5');
+insert into estoque values (3, 15, 222, '5');
+insert into estoque values (4, 16, 222, '5');
+insert into estoque values (5, 18, 222, '2');
+insert into estoque values (6, 27, 222, '5');
+
+create view vw_estoque_vendedor as
+select a.nome as arma, v.nome as vendedor, e.quantidade 
+from arma a 
+join estoque e on e.idarmas = a.idarmas 
+join vendedores v on e.idvendedores = v.idvendedores ;
+
+select *
+from vw_estoque_vendedor;
